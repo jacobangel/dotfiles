@@ -21,7 +21,7 @@ sudo scutil --set LocalHostName "Oathkeeper"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Oathkeeper"
 
 # Set standby delay to 2 hours (default is 1 hour)
-sudo pmset -a standbydelay 7200 
+sudo pmset -a standbydelay 7200
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
@@ -537,6 +537,11 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
 
 # Don’t show the preferences window on next start
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
+
+###############################################################################
+# Git                                                                         #
+###############################################################################
+git config --global credential.helper osxkeychain
 
 ###############################################################################
 # Transmission.app                                                            #
