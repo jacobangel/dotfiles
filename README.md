@@ -7,7 +7,7 @@ I suppose I should have just forked someone else's dotfile.
 ````
 git clone git@github.com:jacobangel/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-./script/build.sh
+./scripts/build.sh
 ````
 
 ## Organization
@@ -16,7 +16,7 @@ cd ~/.dotfiles
 
 * `./bin/*` scripts you want to run any where. 
 * `./scripts/*` non-environment related scripts.
-* `./topics/*` Any topic areas to be set up on an install.
+* `./{topics}/*` Any topic areas to be set up on an install.
 
 ### Topics
 
