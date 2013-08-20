@@ -20,3 +20,4 @@ export LS_OPTS='--color=auto'
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export PS1="$LIGHT_GREEN\u@\h$NO_COLOR:$LIGHT_GREEN\w$LIGHT_RED\$(parse_git_branch)$NO_COLOR § "
 export PATH=$PATH
+export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=512M"

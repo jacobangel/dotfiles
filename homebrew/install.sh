@@ -11,4 +11,17 @@ fi
 brew update
 brew doctor
 
+brew install mongodb
+# ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
+brew install rabbitmq
+# ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
+
+brew install imagemagick
+brew install zookeeper
+
+brew install node
+
 exit 0
