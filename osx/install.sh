@@ -33,6 +33,9 @@ defaults write com.apple.menuextra.battery ShowTime -string "YES"
 # Menu bar: hide the useless Time Machine and Volume icons
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
+# Menu bar: show the date in clock.
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
+
 # Set highlight color to green
 # defaults write NSGlobalDomain AppleHighlightColor -string '0.764700 0.976500 0.568600'
 
