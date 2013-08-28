@@ -21,6 +21,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export PS1="$LIGHT_GREEN\u@\h$NO_COLOR:$LIGHT_GREEN\w$LIGHT_RED\$(parse_git_branch)$NO_COLOR § "
 export PATH=$PATH
 export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=512M"
+export CC=gcc
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function
 
 if [ -f ~/.dotfiles/cli/.git-completion.bash ]; then
   . ~/.dotfiles/cli/.git-completion.bash
