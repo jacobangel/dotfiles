@@ -15,3 +15,7 @@ cd "$(dirname $)"/..
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+
+[ ! -e ~/.gitignore_global ] && touch ~/.gitignore_global
+
+find . -name gitignore.txt | while read ignore ; do cat "${installer}" > .gitignore_global ; done
