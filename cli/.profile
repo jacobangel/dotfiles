@@ -24,8 +24,10 @@ export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=512M"
 export GRADLE_OPTS="-Xmx512M -XX:MaxPermSize=512M"
 export SQSP_BLOG_HOME="$HOME/work/blog-squarespace"
 export CC=gcc
-export PATH=/Applications/Android\ Studio.app/sdk/tools:$PATH
-export PATH=/Applications/Android\ Studio.app/sdk/platform-tools:$PATH
+export ANDROID_HOME=/Applications/Android\ Studio.app/sdk
+export ANDROID_SDK=/Applications/Android\ Studio.app/sdk
+export PATH=${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools:$PATH
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function
 
