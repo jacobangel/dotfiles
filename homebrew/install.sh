@@ -22,6 +22,6 @@ brew install rabbitmq
 brew install imagemagick
 brew install zookeeper
 
-brew install node
+brew install node6-lts
 
 exit 0

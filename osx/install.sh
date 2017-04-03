@@ -155,6 +155,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write -g KeyRepeat -int 0
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Automatically illuminate built-in MacBook keyboard in low light
 defaults write com.apple.BezelServices kDim -bool true
