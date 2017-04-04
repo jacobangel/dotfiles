@@ -9,7 +9,8 @@ git config --global core.autocrlf input
 ## Aliases
 git config --global alias.co checkout
 git config --global alias.st status
-git config --global alias.l  git log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+git config --global alias.l git log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+git config --global alias.pro "pull --rebase origin" 
 
 ## Colors
 git config --global color.branch auto
