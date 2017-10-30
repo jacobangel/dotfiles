@@ -1,0 +1,7 @@
+{
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "all",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.fontFamily": "'Input Mono', Menlo, Monaco, 'Courier New', monospace",
+    "files.trimTrailingWhitespace": true
+}
