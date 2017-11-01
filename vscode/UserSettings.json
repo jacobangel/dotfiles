@@ -3,5 +3,11 @@
     "editor.renderWhitespace": "all",
     "vim.disableAnnoyingNeovimMessage": true,
     "editor.fontFamily": "'Input Mono', Menlo, Monaco, 'Courier New', monospace",
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [80,120],
+    "editor.renderControlCharacters": true,
+    "editor.renderIndentGuides": true,
+    "files.associations": {
+        "*.mdx": "markdown"
+    }
 }
