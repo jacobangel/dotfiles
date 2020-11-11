@@ -1,13 +1,14 @@
 {
-    "editor.tabSize": 2,
-    "editor.renderWhitespace": "all",
-    "vim.disableAnnoyingNeovimMessage": true,
     "editor.fontFamily": "'Input Mono', Menlo, Monaco, 'Courier New', monospace",
-    "files.trimTrailingWhitespace": true,
-    "editor.rulers": [80,120],
     "editor.renderControlCharacters": true,
     "editor.renderIndentGuides": true,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [80,120],
+    "editor.tabSize": 2,
     "files.associations": {
         "*.mdx": "markdown"
-    }
+    },
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "vim.disableAnnoyingNeovimMessage": true
 }

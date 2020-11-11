@@ -1,0 +1,2 @@
+# .zprofile
+## echo "Loading .zprofile"

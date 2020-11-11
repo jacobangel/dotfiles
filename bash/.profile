@@ -28,9 +28,12 @@ export ANDROID_HOME=/Applications/Android\ Studio.app/sdk
 export ANDROID_SDK=/Applications/Android\ Studio.app/sdk
 export PATH=${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools:$PATH
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function
 
-if [ -f ~/.dotfiles/cli/.git-completion.bash ]; then
-  . ~/.dotfiles/cli/.git-completion.bash
+if [ -f ~/.dotfiles/bash/.git-completion.bash ]; then
+  . ~/.dotfiles/bash/.git-completion.bash
 fi
