@@ -90,7 +90,8 @@ The prompt includes git branch information via the `parse_git_branch` function.
 Sets global git config with:
 
 - User info
-- Aliases: `co` (checkout), `st` (status), `pro` (pull --rebase origin), `prom` (pull --rebase origin main)
+- Default branch set to `main`
+- Aliases: `co` (checkout), `st` (status), `l` (log with custom format), `pro` (pull --rebase origin), `prom` (pull --rebase origin main)
 - Color output enabled
 - Reuse recorded resolution (rerere) enabled
 - Case-sensitive filesystem handling
@@ -104,6 +105,7 @@ Installs development tools:
 - imagemagick
 - zookeeper
 - nvm (Node Version Manager)
+- pnpm (Fast, disk space efficient package manager)
 
 ### OSX System Preferences (osx/install.sh)
 
@@ -123,6 +125,15 @@ The zsh install script:
 1. Installs oh-my-zsh framework
 2. Copies git completion script to `~/.zsh/_git/`
 3. Adds source commands to `~/.zprofile`, `~/.zshenv`, and `~/.zshrc` to load dotfiles configs
+
+### AI Agent Configuration (agents/)
+
+Provides default settings and context for AI coding agents:
+
+- `AGENTS.md` - Context file following OpenAI's agents.md standard with development preferences
+- `claude-settings.json` - Claude Code settings (plan mode enabled by default)
+- `cursor-settings.json` - Cursor editor default settings
+- `install.sh` - Installs Claude Code CLI globally via npm and copies configuration files to their appropriate locations (`~/AGENTS.md`, `~/.claude/settings.json`, Cursor settings directory)
 
 ## Important Notes
 

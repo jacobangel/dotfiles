@@ -1,0 +1,11 @@
+{
+  "model": "sonnet",
+  "defaultMode": "plan",
+  "experimental": {
+    "hooks": {
+      "enabled": true
+    }
+  },
+  "shell": "zsh",
+  "editor": "cursor"
+}

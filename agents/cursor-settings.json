@@ -1,0 +1,20 @@
+{
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "workbench.colorTheme": "Default Dark+",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "extensions.autoUpdate": true,
+  "cursor.aiPreferences": {
+    "model": "claude-sonnet-4-5",
+    "contextMode": "full"
+  }
+}
