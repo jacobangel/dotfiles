@@ -23,5 +23,6 @@ brew install imagemagick
 brew install zookeeper
 
 brew install nvm
+brew install pnpm
 
 exit 0
