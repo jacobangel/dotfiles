@@ -1,6 +1,7 @@
 {
-  "model": "sonnet",
+  "model": "opus[1m]",
   "defaultMode": "plan",
+  "skipDangerousModePermissionPrompt": true,
   "experimental": {
     "hooks": {
       "enabled": true

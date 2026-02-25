@@ -1,0 +1,7 @@
+brew "gh"
+brew "ripgrep"
+brew "nvm"
+brew "pnpm"
+brew "tmux"
+brew "cloc"
+cask "ghostty"

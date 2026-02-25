@@ -9,12 +9,12 @@
   "files.autoSaveDelay": 1000,
   "workbench.colorTheme": "Default Dark+",
   "terminal.integrated.fontSize": 12,
-  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "git.autofetch": true,
   "git.confirmSync": false,
   "extensions.autoUpdate": true,
   "cursor.aiPreferences": {
-    "model": "claude-sonnet-4-5",
+    "model": "claude-opus-4-6",
     "contextMode": "full"
   }
 }

@@ -6,14 +6,13 @@ This file provides guidance to AI coding agents (Claude Code, Cursor, etc.) when
 
 ### Shell & Terminal
 - Primary shell: **zsh** (configured with oh-my-zsh)
-- Terminal emulator preferences: iTerm2 or built-in Terminal.app
+- Terminal emulator: **Ghostty**
 - Shell prompt includes git branch information for context
 
 ### Package Managers
 - **Homebrew**: Primary package manager for macOS (`brew`)
 - **pnpm**: Preferred package manager for Node.js projects (fast, disk-efficient)
 - **nvm**: Node Version Manager for managing Node.js versions
-- **rvm**: Ruby Version Manager for managing Ruby versions
 
 ### Development Tools
 - **Git**: Version control with custom aliases
@@ -21,6 +20,7 @@ This file provides guidance to AI coding agents (Claude Code, Cursor, etc.) when
   - `st` for status
   - `pro` for pull --rebase origin
   - `prom` for pull --rebase origin main
+- **gh**: GitHub CLI for PRs, issues, and repo management
 - **Editor**: Cursor (VS Code fork with AI features)
 - **Platform**: macOS (Darwin)
 
@@ -78,5 +78,5 @@ pnpm run typecheck
 ## Platform & Environment
 
 - **Operating System**: macOS (Darwin)
-- **Architecture**: Apple Silicon or Intel
+- **Architecture**: Apple Silicon (arm64)
 - **Hostname**: Blackfyre

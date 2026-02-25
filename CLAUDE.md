@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository using a topic-based organization system. Each topic (bash, zsh, git, vim, etc.) lives in its own directory and can contain install scripts, configuration files, and shell scripts. The build system automatically discovers and runs all installation scripts.
+This is a personal dotfiles repository using a topic-based organization system. Each topic (bash, zsh, git, vim, ghostty, etc.) lives in its own directory and can contain install scripts, configuration files, and shell scripts. The build system automatically discovers and runs all installation scripts.
 
 ## Installation & Setup
 
@@ -19,7 +19,7 @@ cd ~/.dotfiles
 The build script (`scripts/build.sh`) performs the following:
 
 1. Checks for Homebrew installation (required dependency)
-2. Discovers and runs all `install.sh` files in topic directories
+2. Discovers and runs all `install.sh` files in topic directories (max depth 2)
 3. Creates `~/.gitignore_global` if it doesn't exist
 4. Processes gitignore.txt files into global gitignore
 
@@ -32,13 +32,13 @@ The build script (`scripts/build.sh`) performs the following:
 
 ### Topic-Based Organization
 
-Each topic directory (e.g., `zsh/`, `git/`, `vim/`) is self-contained:
+Each topic directory (e.g., `zsh/`, `git/`, `vim/`, `ghostty/`) is self-contained:
 
-- `install.sh` - Setup script run by build.sh
-- Configuration files (e.g., `.zshrc`, `.vimrc`)
+- `install.sh` - Setup script run by build.sh (must be idempotent)
+- Configuration files (e.g., `.zshrc`, `.vimrc`, `config`)
 - Supporting files (e.g., completion scripts)
 
-**Note:** Only files in the root of topic directories are processed by build.sh. Nested folders are ignored.
+**Note:** Only files in the root of topic directories are processed by build.sh (`-maxdepth 2`).
 
 ### Shell Configuration Loading Order
 
@@ -46,26 +46,23 @@ The repository configures both bash and zsh. Understanding the load order is imp
 
 **Zsh:**
 
-1. `.zshenv` - Loaded for all shell invocations, sets PATH and environment variables
+1. `.zshenv` - Loaded for all shell invocations, sets PATH (`/opt/homebrew/bin`) and environment variables (`NVM_DIR`, `ZSH`)
 2. `.zprofile` - Loaded for login shells (currently minimal)
-3. `.zshrc` - Loaded for interactive shells, sets prompt and loads completions
+3. `.zshrc` - Loaded for interactive shells, sets prompt with git branch, loads NVM and completions
 
 **Bash:**
 
-1. `.profile` - Main bash configuration file
+1. `.profile` - Main bash configuration file, sets PATH, prompt, NVM loading
 
-Both shells source their respective config files from `~/.dotfiles/{bash,zsh}/` into the home directory configs.
+Both shells source their respective config files from `~/.dotfiles/{bash,zsh}/` into the home directory configs. Install scripts use `grep -qF` guards to prevent duplicate source lines.
 
 ### Environment Configuration
 
 Key environment variables set in `.zshenv` and `.profile`:
 
 - `NVM_DIR` - Node Version Manager directory
-- `ANDROID_HOME` / `ANDROID_SDK` - Android development paths
-- `GROOVY_HOME` - Groovy installation path
-- `SQSP_BLOG_HOME` - Project-specific path
-- `MAVEN_OPTS` / `GRADLE_OPTS` - JVM memory settings
 - `ZSH` - oh-my-zsh installation directory
+- `PATH` - Includes `/opt/homebrew/bin`, `/opt/homebrew/sbin`, `$HOME/bin` (Apple Silicon paths)
 
 The prompt includes git branch information via the `parse_git_branch` function.
 
@@ -92,52 +89,66 @@ Sets global git config with:
 - User info
 - Default branch set to `main`
 - Aliases: `co` (checkout), `st` (status), `l` (log with custom format), `pro` (pull --rebase origin), `prom` (pull --rebase origin main)
-- Color output enabled
+- Modern defaults: `pull.rebase true`, `push.autoSetupRemote true`, `push.default current`, `diff.algorithm histogram`, `branch.sort -committerdate`
+- Credential helper: osxkeychain
+- Color output: `color.ui auto`
 - Reuse recorded resolution (rerere) enabled
-- Case-sensitive filesystem handling
 
-### Homebrew Dependencies (homebrew/install.sh)
+### Homebrew Dependencies (homebrew/Brewfile)
 
-Installs development tools:
+Uses `brew bundle` with a Brewfile. Current dependencies:
 
-- mongodb
-- rabbitmq
-- imagemagick
-- zookeeper
+- gh (GitHub CLI)
+- ripgrep
 - nvm (Node Version Manager)
-- pnpm (Fast, disk space efficient package manager)
+- pnpm
+- tmux
+- cloc
+- ghostty (cask)
+
+### Ghostty Configuration (ghostty/)
+
+Terminal emulator config installed to `~/.config/ghostty/config`:
+
+- Font: Menlo 14pt
+- macOS tabs titlebar style
+- Block cursor, 10k scrollback
+- zsh shell integration
+
+### Vim Configuration (vim/)
+
+Uses vim-plug plugin manager with:
+
+- vim-sensible, vim-commentary, vim-surround plugins
+- Standard settings: line numbers, 2-space tabs, smart search, system clipboard, no swap files
 
 ### OSX System Preferences (osx/install.sh)
 
 Configures macOS system settings including:
 
 - Computer name set to "Blackfyre"
-- Menu bar customization
-- Finder preferences
-- Various UI/UX tweaks
-
-This file originated from mathiasbynens/dotfiles and contains extensive system preference modifications.
-
-### Shell Integration
-
-The zsh install script:
-
-1. Installs oh-my-zsh framework
-2. Copies git completion script to `~/.zsh/_git/`
-3. Adds source commands to `~/.zprofile`, `~/.zshenv`, and `~/.zshrc` to load dotfiles configs
+- Expand save/print panels, save to disk not iCloud
+- Fast key repeat, disable press-and-hold
+- Password required after sleep, screenshots to Desktop as PNG
+- Finder: show hidden files, extensions, status bar, path bar, search current folder, no .DS_Store on network, list view, show ~/Library
+- Dock: 36px icons, auto-hide with no delay, don't rearrange Spaces
+- Safari developer tools
+- TextEdit plain text mode
+- Time Machine: don't offer new disks
 
 ### AI Agent Configuration (agents/)
 
 Provides default settings and context for AI coding agents:
 
-- `AGENTS.md` - Context file following OpenAI's agents.md standard with development preferences
-- `claude-settings.json` - Claude Code settings (plan mode enabled by default)
+- `AGENTS.md` - Context file with development preferences
+- `claude-settings.json` - Claude Code settings (plan mode, opus model)
 - `cursor-settings.json` - Cursor editor default settings
-- `install.sh` - Installs Claude Code CLI globally via npm and copies configuration files to their appropriate locations (`~/AGENTS.md`, `~/.claude/settings.json`, Cursor settings directory)
+- `install.sh` - Installs Claude Code CLI and copies configuration files (with don't-overwrite guards to prevent clobbering customizations)
 
 ## Important Notes
 
-- The repository is designed for macOS (see osx/install.sh)
+- The repository targets macOS Sequoia on Apple Silicon (arm64)
+- Homebrew paths use `/opt/homebrew/` (Apple Silicon)
 - Node version management uses nvm, loaded in shell configs
-- Ruby version management uses rvm, loaded in shell configs
+- All install scripts are idempotent — safe to run multiple times
 - Git branch name is integrated into shell prompt with custom colors

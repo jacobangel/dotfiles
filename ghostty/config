@@ -1,0 +1,15 @@
+font-family = Menlo
+font-size = 14
+
+macos-titlebar-style = tabs
+macos-option-as-alt = left
+
+cursor-style = block
+cursor-style-blink = false
+
+scrollback-limit = 10000
+
+shell-integration = zsh
+
+window-padding-x = 8
+window-padding-y = 8

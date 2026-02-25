@@ -4,18 +4,21 @@
 
 set -e
 
-if test ! $(which brew)
+if test ! "$(which brew)"
 then
   echo "  x You should probably install Homebrew first:"
-  echo "    https://github.com/mxcl/homebrew/wiki/installation"
+  echo "    https://brew.sh"
   exit
 fi
 
-cd "$(dirname $)"/..
+cd "$(dirname $0)"/..
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find . -maxdepth 2 -name install.sh | while read installer ; do
+  echo "Running ${installer}..."
+  sh -c "${installer}"
+done
 
-[ ! -e ~/.gitignore_global ] && touch ~/.gitignore_global
+if [ ! -e ~/.gitignore_global ]; then touch ~/.gitignore_global; fi
 
-find . -name gitignore.txt | while read ignore ; do cat "${ignore}" > .gitignore_global ; done
+find . -maxdepth 2 -name gitignore.txt | while read ignore ; do cat "${ignore}" > .gitignore_global ; done

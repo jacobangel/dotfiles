@@ -1,29 +1,33 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" .vimrc:
+" .vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+call plug#end()
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Display
+set number
+set cursorline
 
-" Kludge to fix global/local bs. 
-let g:syntastic_javascript_checkers = ['eslint']
+" Tabs and indentation
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
 
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-    let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-    let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+" Search
+set ignorecase
+set smartcase
+set hlsearch
+
+" System clipboard
+set clipboard=unnamed
+
+" No swap files
+set noswapfile
+set nobackup
+set nowritebackup
