@@ -105,6 +105,7 @@ Uses `brew bundle` with a Brewfile. Current dependencies:
 - tmux
 - cloc
 - ghostty (cask)
+- zed (cask)
 
 ### Ghostty Configuration (ghostty/)
 
@@ -143,6 +144,7 @@ Provides default settings and context for AI coding agents:
 - `AGENTS.md` - Context file with development preferences
 - `claude-settings.json` - Claude Code settings (plan mode, opus model)
 - `cursor-settings.json` - Cursor editor default settings
+- `zed-settings.json` - Zed editor default settings (Menlo 14pt, 2-space tabs, format on save)
 - `install.sh` - Installs Claude Code CLI and copies configuration files (with don't-overwrite guards to prevent clobbering customizations)
 
 ## Important Notes

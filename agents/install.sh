@@ -39,4 +39,14 @@ else
   echo "$CURSOR_USER_DIR/settings.json already exists, skipping"
 fi
 
+## Set up Zed default settings (don't overwrite existing)
+ZED_DIR="$HOME/.config/zed"
+mkdir -p "$ZED_DIR"
+if [ ! -f "$ZED_DIR/settings.json" ]; then
+  cp ~/.dotfiles/agents/zed-settings.json "$ZED_DIR/settings.json"
+  echo "Zed settings installed to $ZED_DIR/settings.json"
+else
+  echo "$ZED_DIR/settings.json already exists, skipping"
+fi
+
 exit 0

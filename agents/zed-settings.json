@@ -1,0 +1,14 @@
+{
+  "buffer_font_family": "Menlo",
+  "buffer_font_size": 14,
+  "tab_size": 2,
+  "hard_tabs": false,
+  "format_on_save": "on",
+  "autosave": { "after_delay": { "milliseconds": 1000 } },
+  "agent": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-6"
+    }
+  }
+}

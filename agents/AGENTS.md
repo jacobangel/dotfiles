@@ -21,7 +21,7 @@ This file provides guidance to AI coding agents (Claude Code, Cursor, etc.) when
   - `pro` for pull --rebase origin
   - `prom` for pull --rebase origin main
 - **gh**: GitHub CLI for PRs, issues, and repo management
-- **Editor**: Cursor (VS Code fork with AI features)
+- **Editor**: Cursor (VS Code fork with AI features) and Zed (Rust-native editor)
 - **Platform**: macOS (Darwin)
 
 ## Code Style Preferences

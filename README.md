@@ -16,7 +16,7 @@ cd ~/.dotfiles
 
 | Topic | What it does |
 |-------|-------------|
-| `agents/` | AI coding agent configs (Claude Code, Cursor, AGENTS.md) |
+| `agents/` | AI coding agent configs (Claude Code, Cursor, Zed, AGENTS.md) |
 | `bash/` | Bash shell configuration and git completion |
 | `git/` | Global git config, aliases, and modern defaults |
 | `ghostty/` | Ghostty terminal emulator config |
