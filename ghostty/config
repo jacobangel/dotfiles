@@ -15,3 +15,5 @@ window-padding-x = 8
 window-padding-y = 8
 
 background = 202024
+
+split-divider-color = #3a5b43
