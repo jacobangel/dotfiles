@@ -8,5 +8,5 @@
     }
   },
   "shell": "zsh",
-  "editor": "cursor"
+  "editor": "zed --wait"
 }

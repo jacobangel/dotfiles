@@ -9,6 +9,11 @@ git config --global rerere.enabled true
 git config --global init.defaultBranch main
 git config --global credential.helper osxkeychain
 
+## Merge tool (resolve conflicts in Zed, keep vim for commits)
+git config --global merge.tool zed
+git config --global mergetool.zed.cmd 'zed --wait "$MERGED"'
+git config --global mergetool.keepBackup false
+
 ## Modern defaults
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
