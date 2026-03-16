@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[[ "$(uname)" == "Darwin" ]] || exit 0
 
 # macOS system preferences
 # Originated from: https://github.com/mathiasbynens/dotfiles/blob/master/.osx

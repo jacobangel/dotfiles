@@ -19,6 +19,14 @@ else
   echo "~/AGENTS.md already exists, skipping"
 fi
 
+## Copy CLAUDE.md to home directory (don't overwrite existing)
+if [ ! -f ~/CLAUDE.md ]; then
+  cp ~/.dotfiles/agents/CLAUDE.md ~/CLAUDE.md
+  echo "CLAUDE.md installed to ~/CLAUDE.md"
+else
+  echo "~/CLAUDE.md already exists, skipping"
+fi
+
 ## Set up Claude Code default settings (don't overwrite existing)
 CLAUDE_DIR="$HOME/.claude"
 mkdir -p "$CLAUDE_DIR"
